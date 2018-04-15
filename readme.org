@@ -26,4 +26,6 @@ To learn what optionals are available
 python main.py --help
 #+END_SRC
 
+To evaluate the saved models
 
+see [[./Evaluation.ipynb][Evaluation.ipynb]]
