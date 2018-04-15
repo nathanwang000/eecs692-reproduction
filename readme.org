@@ -1,0 +1,29 @@
+* EECS 692 reproduction project
+
+Work reproduced: Jaderberg, Max, Karen Simonyan, and Andrew Zisserman. "Spatial transformer networks." Advances in neural information processing systems. 2015.
+
+I reproduced two experiments and added two extensions
+
+The fourth experiments in my reproduction report consist of sensitive data, so code not shown here
+
+To reproduce the first three experiments (assumes has gpu), run
+
+#+BEGIN_SRC bash
+bash run1.sh
+#+END_SRC
+
+#+BEGIN_SRC bash
+bash run2.sh
+#+END_SRC
+
+#+BEGIN_SRC bash
+bash run3.sh
+#+END_SRC
+
+To learn what optionals are available 
+
+#+BEGIN_SRC bash
+python main.py --help
+#+END_SRC
+
+
