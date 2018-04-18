@@ -33,7 +33,7 @@ def convert_image_np(inp):
     inp = np.clip(inp, 0, 1)
     return inp
 
-def visualize_stn(model, visual_loader, use_cuda=True):
+def visualize_stn(model, visual_loader, use_cuda=True, nrow=4):
     import matplotlib.pyplot as plt    
     # Get a batch of training data
     data, _ = next(iter(visual_loader))
@@ -48,17 +48,19 @@ def visualize_stn(model, visual_loader, use_cuda=True):
     transformed_input_tensor = model.stn(data).cpu().data
 
     in_grid = convert_image_np(
-        torchvision.utils.make_grid(input_tensor))
+        torchvision.utils.make_grid(input_tensor, nrow=nrow))
 
     out_grid = convert_image_np(
-        torchvision.utils.make_grid(transformed_input_tensor))
+        torchvision.utils.make_grid(transformed_input_tensor, nrow=nrow))
 
     # Plot the results side-by-side
     f, axarr = plt.subplots(1, 2)
     axarr[0].imshow(in_grid)
+    axarr[0].axis('off')
     axarr[0].set_title('Dataset Images')
 
     axarr[1].imshow(out_grid)
+    axarr[1].axis('off')    
     axarr[1].set_title('Transformed Images')
 
     
