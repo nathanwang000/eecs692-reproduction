@@ -29,3 +29,9 @@ python main.py --help
 To evaluate the saved models
 
 see [[./Evaluation.ipynb][Evaluation.ipynb]]
+
+A pdf presentation of the result:
+[[./STN_replication.pdf][STN_replication]]
+
+A full report:
+[[./EECS692Replication.pdf][STN replication report]]
