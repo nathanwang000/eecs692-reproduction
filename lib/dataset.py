@@ -8,6 +8,26 @@ from torch.autograd import Variable
 import numpy as np
 from torch.utils.data import Dataset, DataLoader
 
+class DoubleSameMNIST(Dataset):
+
+    def __init__(self, train=True, transform=None):
+        self.mnist = datasets.MNIST(root='.', train=train, download=True)
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.mnist)
+
+    def __getitem__(self, idx):
+        
+        im1, y = self.mnist[idx]
+        im2, y = self.mnist[idx] # same image
+
+        if self.transform:
+            im1 = self.transform(im1)['image']
+            im2 = self.transform(im2)['image']
+
+        return ((im1, im2), y)
+        
 class DoubleMNIST(Dataset):
 
     def __init__(self, train=True, transform=None):

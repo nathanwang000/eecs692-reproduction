@@ -124,6 +124,8 @@ class RandomRTS(object):
     
 def wrap(f):
     def f_(sample):
+        if type(sample) is not dict:
+            return f(sample)
         image, theta = sample['image'], sample['theta']
         return {'image': f(image), 'theta': theta}
     return f_
